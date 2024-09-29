@@ -6,7 +6,13 @@
           <p class="text-gray-400 dark:text-gray-500">
             &copy; 2024 Medusiora. Published under
             <UTooltip text="See more">
-              <ULink href=""> MIT License. </ULink>
+              <ULink
+                external
+                to="https://github.com/medusiora/demo-discovery-japan"
+                target="_blank"
+              >
+                MIT License.
+              </ULink>
             </UTooltip>
           </p>
         </div>
