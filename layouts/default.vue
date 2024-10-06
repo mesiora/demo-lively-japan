@@ -1,3 +1,9 @@
+<script setup>
+onMounted(() => {
+  useSmoothScroll()
+})
+</script>
+
 <template>
   <main>
     <AppHeader />

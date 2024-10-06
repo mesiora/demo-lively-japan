@@ -19,7 +19,6 @@ onMounted(() => {
 
 <style>
 html {
-  scroll-behavior: smooth;
   overflow-x: hidden;
   --color-mode-reverse-bg: #1c1b22;
   --color-mode-reverse-text: #fff;
