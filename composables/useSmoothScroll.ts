@@ -9,10 +9,6 @@ export const useSmoothScroll = () => {
     smoothWheel: true,
   })
 
-  scrollLenis.on('scroll', () => {
-    ScrollTrigger.update()
-  })
-
   gsap.ticker.add((time) => {
     scrollLenis.raf(time * 1000)
   })
