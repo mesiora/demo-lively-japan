@@ -1,19 +1,19 @@
 <template>
   <div>
     <section
-      class="relative flex items-center justify-center xl:block h-screen"
+      class="relative flex h-screen items-center justify-center xl:block"
     >
       <ParallaxVideo
         :src="Video1"
-        class="absolute top-0 h-[50vh] w-full xl:left-28 xl:top-[10vh] xl:h-auto xl:w-[25vw]"
+        class="absolute top-0 h-[50vh] w-full xl:left-28 xl:top-[5vh] xl:h-auto xl:w-[30vw] 2xl:w-[25vw]"
       />
       <ParallaxVideo
         :src="Video2"
-        class="absolute top-[50%] h-[50vh] xl:-right-14 xl:top-[54vh] xl:h-auto xl:w-[30vw]"
+        class="absolute top-[50%] h-[50vh] sm:w-full xl:right-0 xl:top-[54vh] xl:h-auto xl:w-[30vw]"
       />
       <UContainer class="w-full">
         <div
-          class="relative z-10 flex h-full flex-col justify-center px-5 text-white xl:pl-[20vw] xl:pt-[15vh] xl:text-gray-800 dark:text-white"
+          class="relative z-10 flex h-full flex-col justify-center px-5 text-white sm:px-20 xl:pl-[20vw] xl:pt-[15vh] xl:text-gray-800 2xl:pl-[15vw] dark:text-white"
         >
           <p
             class="mt-4 font-source-code-pro font-semibold uppercase text-gray-400 dark:text-gray-400"
@@ -38,9 +38,9 @@
     </section>
 
     <section class="reverse-color-mode">
-      <UContainer class="px-0">
+      <UContainer class="px-0 sm:px-0 lg:px-0">
         <div class="relative items-center py-0 xl:h-screen xl:py-40">
-          <div class="relative z-10 px-8 py-20 xl:p-10">
+          <div class="relative z-10 px-8 py-20 sm:px-28 xl:w-full xl:p-10">
             <p
               class="font-source-code-pro font-semibold uppercase text-gray-400 xl:mt-4 dark:text-gray-400"
             >
@@ -65,7 +65,7 @@
             <h2 class="mt-10 text-3xl font-bold leading-tight">
               <span class="text-primary"> Meaww </span> island
             </h2>
-            <p class="mt-4 lg:w-2/3">
+            <p class="mt-4 lg:w-2/3 ">
               Japan is home to a fascinating place known as Meawww island. Other
               countries also have similar enchanting places. Let's cherish and
               protect these beloved angels. 🐈 ...
@@ -73,15 +73,17 @@
           </div>
           <ParallaxVideo
             :src="Video3"
-            class="absolute top-1/2 h-full w-full -translate-y-1/2 transform opacity-10 xl:left-[45%] xl:h-auto xl:w-[20vw]"
+            class="absolute top-1/2 h-full w-full -translate-y-1/2 transform opacity-5 xl:left-[52%] xl:h-[90%] xl:w-[25vw] xl:opacity-20"
           />
         </div>
       </UContainer>
     </section>
 
     <section class="relative">
-      <UContainer class="px-0">
-        <div class="relative px-10 py-10 xl:pb-40">
+      <UContainer class="px-0 sm:px-0 ">
+        <div
+          class="relative px-10 py-10 sm:px-28 lg:px-[5rem] xl:px-0 xl:pb-10"
+        >
           <span
             class="text-6xl font-bold text-gray-400 xl:text-8xl dark:text-gray-400"
           >
