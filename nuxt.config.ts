@@ -42,4 +42,8 @@ export default defineNuxtConfig({
       'postcss-import': {},
     },
   },
+  plugins: [
+    '~/plugins/gsap.js', // เพิ่ม plugin ที่เราสร้างขึ้น
+  ],
+
 })

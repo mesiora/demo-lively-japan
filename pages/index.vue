@@ -24,10 +24,12 @@
             DISCOVER The
             <span class="text-primary">Vibrant Heart</span>
             <span class="text-gray-400"> of </span>
+            <br />
             <span
+              id="JAPAN"
               class="bg-black px-2 font-source-code-pro text-white dark:bg-white dark:text-black"
             >
-              JAPAN
+              日本
             </span>
           </h1>
           <p class="mt-12 text-gray-300 xl:text-gray-600 dark:text-gray-300">
@@ -65,7 +67,7 @@
             <h2 class="mt-10 text-3xl font-bold leading-tight">
               <span class="text-primary"> Meaww </span> island
             </h2>
-            <p class="mt-4 lg:w-2/3 ">
+            <p class="mt-4 lg:w-2/3">
               Japan is home to a fascinating place known as Meawww island. Other
               countries also have similar enchanting places. Let's cherish and
               protect these beloved angels. 🐈 ...
@@ -79,16 +81,18 @@
       </UContainer>
     </section>
 
-    <section class="relative">
-      <UContainer class="px-0 sm:px-0 ">
+    <section class="relative" id="Section3">
+      <UContainer class="px-0 sm:px-0">
         <div
           class="relative px-10 py-10 sm:px-28 lg:px-[5rem] xl:px-0 xl:pb-10"
         >
           <span
+            id="StunningWeb"
             class="text-6xl font-bold text-gray-400 xl:text-8xl dark:text-gray-400"
           >
-            Looking for <br />
-            Stunning websites?
+            Gninnutsrofgnikool
+            <br />
+            Ietisbew ?
           </span>
           <p
             class="mt-5 font-source-code-pro uppercase text-gray-400 xl:mt-4 dark:text-gray-400"
@@ -145,4 +149,35 @@
 import Video1 from '~/assets/videos/7956436-uhd_2160_3840_24fps.mp4'
 import Video2 from '~/assets/videos/7958163-uhd_3840_2160_24fps.mp4'
 import Video3 from '~/assets/videos/8748744-uhd_2160_4096_25fps.mp4'
+
+const { $gsap } = useNuxtApp()
+
+onMounted(async () => {
+  // $gsap.to('#JAPAN', { duration: 0.8, text: 'JAPAN', delay: 1 })
+  $gsap.to('#JAPAN', {
+    duration: 0.8,
+    text: 'JAPAN',
+    delay: 1,
+    scrollTrigger: {
+      trigger: '#JAPAN',
+      start: 'top center',
+      end: 'bottom top',
+      scrub: true,
+      markers: true,
+    },
+  })
+
+  $gsap.to('#StunningWeb', {
+    duration: 1.5,
+    text: 'Looking for Stunning websites?',
+    delay: 3,
+    scrollTrigger: {
+      trigger: '#Section3',
+      start: 'top center',
+      end: 'bottom top',
+      scrub: true,
+      markers: true,
+    },
+  })
+})
 </script>
