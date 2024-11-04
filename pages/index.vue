@@ -213,7 +213,6 @@ const animateStunningText = (textElement: any) => {
       start: 'top 150%',
       end: 'bottom top',
       scrub: true,
-      markers: true,
     },
     onStart: () => {
       const letters = textElement.textContent.split('')
@@ -261,7 +260,6 @@ const animateJapanText = (japanElement: any) => {
         start: 'top 150%', // เริ่มทำงานเมื่อ scroll เข้ามาใกล้ 80% ของ viewport
         end: 'bottom top', // จบเมื่อ scroll ผ่านพ้น element ไป
         scrub: 1, // ทำให้ animation เคลื่อนตามการ scroll
-        markers: true, // แสดงตำแหน่ง start และ end ของ scroll trigger
       },
     },
   )
@@ -296,7 +294,6 @@ const animateDropScroll = (dropElement: any) => {
       start: 'top 90%', // เริ่มทำงานเมื่อ scroll มาที่กลาง viewport
       end: 'bottom top',
       scrub: true, // ทำให้ animation เคลื่อนตามการ scroll
-      markers: true,
     },
   })
 }
@@ -304,22 +301,22 @@ const animateDropScroll = (dropElement: any) => {
 const animateSlideInFromLeft = (element: any) => {
   // ตั้งค่าเริ่มต้นให้เริ่มจากด้านซ้าย
   $gsap.set(element, {
-    x: -200, // เริ่มจากด้านซ้าย (ค่าลบ)
+    x: -80, // เริ่มจากด้านซ้าย (ค่าลบ)
     opacity: 0, // เริ่มจากโปร่งใส
   })
 
   // สร้าง animation ให้วิ่งเข้ามาจากด้านซ้าย
   $gsap.to(element, {
     x: 0, // เคลื่อนที่มาที่ตำแหน่งเริ่มต้น
+    rotation: 0, // หมุนไปทางขวา
     opacity: 1, // ทำให้โปร่งใส
     duration: 1, // ระยะเวลาในการเคลื่อนที่
     ease: 'power2.out', // ความนุ่มนวลของการเคลื่อนไหว
     scrollTrigger: {
       trigger: element,
-      start: 'top 110%', // เริ่มทำงานเมื่อ scroll มาถึง 80% ของ viewport
-      end: 'bottom 60%',
+      start: 'top 100%', // เริ่มทำงานเมื่อ scroll มาถึง 80% ของ viewport
+      end: 'bottom 25%',
       scrub: true, // ทำให้ animation เคลื่อนตามการ scroll
-      markers: true,
     },
   })
 }
@@ -342,7 +339,6 @@ const animateShakeOnScroll = (shakeElement: any) => {
       start: 'top 80%', // เริ่มทำงานเมื่อ scroll มาถึง 80% ของ viewport
       end: 'bottom top',
       scrub: true, // ทำให้ animation เคลื่อนตามการ scroll
-      markers: true, // แสดงตำแหน่ง start และ end ของ scroll trigger
     },
   })
 }
