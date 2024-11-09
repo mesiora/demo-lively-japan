@@ -201,7 +201,45 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const { $gsap } = useNuxtApp()
+
+function animate() {
+  const images = document.querySelectorAll('.grid-item img')
+
+  images.forEach((image) => {
+    const tl = $gsap.timeline()
+    const xTransform = $gsap.utils.random(-100, 100)
+
+    tl.set(
+      image,
+      {
+        transformOrigin: `${xTransform < 0 ? 'left' : 'right'}`,
+      },
+      'start',
+    ).to(
+      image,
+      {
+        scale: 0,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: image,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 1,
+        },
+      },
+      'start',
+    )
+  })
+}
+
+onMounted(() => {
+  nextTick(() => {
+    animate()
+  })
+})
+</script>
 
 <style class="postcss">
 .grid {
