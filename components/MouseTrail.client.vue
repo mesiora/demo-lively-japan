@@ -68,7 +68,8 @@ const checkCursor = (e: MouseEvent) => {
 
   if (isVideo) {
     size = config.videoSize
-    addVideo(element.getAttribute('data-video') || '')
+    const vid = Math.floor(Math.random() * 10) + 1
+    addVideo(`${vid}.mp4`)
   } else {
     const video = trail.value.querySelector('video')
     if (video) {

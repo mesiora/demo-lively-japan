@@ -186,10 +186,7 @@
       <section class="reverse-color-mode">
         <div class="flex h-screen w-full items-center justify-center">
           <UContainer>
-            <div
-              class="text-justify text-6xl uppercase"
-              :data-video="`${Math.floor(Math.random() * 10) + 1}.mp4`"
-            >
+            <div class="text-justify text-6xl uppercase" :data-video="1">
               is a country that is rich in culture and tradition. It is known
               for its beautiful landscapes delicious food and friendly people.
             </div>
