@@ -26,12 +26,12 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' },
   },
 
-  modules: ['@nuxt/ui', '@nuxtjs/google-fonts'],
+  modules: ['@nuxt/ui', '@nuxtjs/google-fonts', '@vueuse/nuxt'],
 
   googleFonts: {
     families: {
       Lato: [400, 900],
-      'Source Code Pro ': [600],
+      'Noto Sans Japanese': [300],
     },
   },
 
@@ -42,8 +42,4 @@ export default defineNuxtConfig({
       'postcss-import': {},
     },
   },
-  plugins: [
-    '~/plugins/gsap.js', // เพิ่ม plugin ที่เราสร้างขึ้น
-  ],
-
 })

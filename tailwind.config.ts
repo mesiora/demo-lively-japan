@@ -6,7 +6,10 @@ export default <Partial<Config>>{
     extend: {
       fontFamily: {
         sans: ['Lato', ...defaultTheme.fontFamily.sans],
-        'source-code-pro': ['Source Code Pro', ...defaultTheme.fontFamily.mono],
+        'noto-sans-japanese': [
+          'Noto Sans Japanese',
+          ...defaultTheme.fontFamily.mono,
+        ],
       },
       colors: {
         dark: '#1c1b22',

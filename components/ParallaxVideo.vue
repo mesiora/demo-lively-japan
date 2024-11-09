@@ -1,5 +1,5 @@
 <template>
-  <div v-if="src" class="aspect-auto">
+  <div v-if="src" class="aspect-auto contrast-[70%]">
     <ClientOnly>
       <video
         ref="video"
@@ -24,8 +24,6 @@ defineProps({
 })
 
 const handleCanPlay = () => {
-  console.log('can play')
-
   if (video.value) {
     video.value.classList.add('opacity-100')
   }

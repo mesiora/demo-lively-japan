@@ -2,6 +2,7 @@
   <NuxtLayout>
     <NuxtLoadingIndicator />
     <NuxtPage />
+    <MouseTrail />
   </NuxtLayout>
 </template>
 
@@ -20,13 +21,13 @@ onMounted(() => {
 <style>
 html {
   overflow-x: hidden;
-  --color-mode-reverse-bg: #1c1b22;
+  --color-mode-reverse-bg: #000;
   --color-mode-reverse-text: #fff;
 }
 
 html.dark {
   --color-mode-reverse-bg: #fff;
-  --color-mode-reverse-text: #1c1b22;
+  --color-mode-reverse-text: #000;
 }
 
 .reverse-color-mode {
@@ -51,5 +52,26 @@ html.dark {
   ::-webkit-scrollbar-thumb:hover {
     background: #222;
   }
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }
 </style>
