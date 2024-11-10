@@ -196,10 +196,6 @@
           </UContainer>
         </div>
       </section>
-
-      <section class="relative">
-        <UContainer> </UContainer>
-      </section>
     </div>
   </div>
 </template>
