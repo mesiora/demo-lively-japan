@@ -186,7 +186,10 @@
       <section class="reverse-color-mode">
         <div class="flex h-screen w-full items-center justify-center">
           <UContainer>
-            <div class="text-justify text-6xl uppercase" :data-video="1">
+            <div
+              class="cursor-default text-justify text-6xl uppercase"
+              :data-video="1"
+            >
               is a country that is rich in culture and tradition. It is known
               for its beautiful landscapes delicious food and friendly people.
             </div>
@@ -202,42 +205,54 @@
 </template>
 
 <script setup lang="ts">
+import { ScrollTrigger } from 'gsap/all'
+
 const { $gsap } = useNuxtApp()
 
-function animate() {
+function animateImages(): void {
+  const gridItems = document.querySelectorAll('.grid-item')
   const images = document.querySelectorAll('.grid-item img')
 
-  images.forEach((image) => {
-    const tl = $gsap.timeline()
+  $gsap.to(images, {
+    opacity: 1,
+    duration: 1,
+    stagger: {
+      amount: 1.2,
+      from: 'random',
+    },
+  })
+
+  gridItems.forEach((item) => {
     const xTransform = $gsap.utils.random(-100, 100)
 
-    tl.set(
-      image,
-      {
-        transformOrigin: `${xTransform < 0 ? 'left' : 'right'}`,
-      },
-      'start',
-    ).to(
-      image,
-      {
-        scale: 0,
+    const tl = $gsap.timeline({
+      defaults: {
         ease: 'none',
-        scrollTrigger: {
-          trigger: image,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: 1,
-        },
       },
-      'start',
-    )
+    })
+
+    tl.set(item, {
+      transformOrigin: `${xTransform < 0 ? 'left' : 'right'}`,
+    }).to(item, {
+      scale: 0,
+      scrollTrigger: {
+        trigger: item,
+        start: 'top top',
+        end: 'bottom top',
+        scrub: 1,
+      },
+    })
   })
 }
 
 onMounted(() => {
   nextTick(() => {
-    animate()
+    animateImages()
   })
+})
+
+onUnmounted(() => {
+  ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
 })
 </script>
 
@@ -250,10 +265,10 @@ onMounted(() => {
   width: 100%;
 
   .grid-item {
-    will-change: transform;
     grid-column: var(--c);
     grid-row: var(--r);
     position: relative;
+    will-change: transform;
 
     img {
       width: 100%;
@@ -261,6 +276,7 @@ onMounted(() => {
       object-fit: cover;
       filter: contrast(70%);
       aspect-ratio: auto;
+      opacity: 0;
     }
   }
 }
