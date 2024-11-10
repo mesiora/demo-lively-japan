@@ -170,7 +170,7 @@
         class="fixed left-0 top-0 flex h-screen w-full items-center justify-center"
       >
         <UContainer>
-          <h1 class="text-9xl font-bold">
+          <h1 class="text-7xl font-bold xl:text-9xl">
             LIVELY JAPAN<sup class="font-thin">❐</sup>
           </h1>
           <p
@@ -187,7 +187,7 @@
         <div class="flex h-screen w-full items-center justify-center">
           <UContainer>
             <div
-              class="flicker-letters cursor-default text-justify text-6xl uppercase"
+              class="flicker-letters cursor-default text-justify text-4xl xl:text-6xl"
               :data-video="1"
             >
               A country that is rich in culture and tradition. It is known for
