@@ -2,6 +2,6 @@
   <main>
     <AppHeader />
     <slot />
-    <!-- <AppFooter /> -->
+    <AppFooter />
   </main>
 </template>

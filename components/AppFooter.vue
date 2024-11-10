@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer class="reverse-color-mode relative z-20">
     <UContainer>
       <div class="flex items-center justify-between py-10 text-xs">
         <div>

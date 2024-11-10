@@ -187,11 +187,11 @@
         <div class="flex h-screen w-full items-center justify-center">
           <UContainer>
             <div
-              class="cursor-default text-justify text-6xl uppercase"
+              class="flicker-letters cursor-default text-justify text-6xl uppercase"
               :data-video="1"
             >
-              is a country that is rich in culture and tradition. It is known
-              for its beautiful landscapes delicious food and friendly people.
+              A country that is rich in culture and tradition. It is known for
+              its beautiful landscapes delicious food and friendly people.
             </div>
           </UContainer>
         </div>
@@ -209,10 +209,23 @@ import { ScrollTrigger } from 'gsap/all'
 
 const { $gsap } = useNuxtApp()
 
-function animateImages(): void {
+onMounted(() => {
+  introParagraph()
+
+  nextTick(() => {
+    animate()
+  })
+})
+
+onUnmounted(() => {
+  ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+})
+
+function animate(): void {
   const gridItems = document.querySelectorAll('.grid-item')
   const images = document.querySelectorAll('.grid-item img')
 
+  // Initial animation fade in images
   $gsap.to(images, {
     opacity: 1,
     duration: 1,
@@ -222,6 +235,7 @@ function animateImages(): void {
     },
   })
 
+  // Scroll animation for grid items
   gridItems.forEach((item) => {
     const xTransform = $gsap.utils.random(-100, 100)
 
@@ -243,17 +257,49 @@ function animateImages(): void {
       },
     })
   })
+
+  // Scroll animation for text
+  const textToLetters = document.querySelectorAll('.flicker-letters span')
+
+  $gsap.to(textToLetters, {
+    opacity: 1,
+    duration: 0.5,
+    stagger: {
+      amount: 0.3,
+      from: 'random',
+    },
+    scrollTrigger: {
+      trigger: textToLetters,
+      start: 'top 80%',
+      toggleActions: 'play reverse play reverse',
+    },
+  })
 }
 
-onMounted(() => {
-  nextTick(() => {
-    animateImages()
-  })
-})
+function introParagraph(): void {
+  const paragraph = document.querySelectorAll('.flicker-letters')
+  paragraph.forEach((p) => {
+    const text = p.textContent
 
-onUnmounted(() => {
-  ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
-})
+    if (!text) return
+
+    p.innerHTML = text
+      .split(/(\s+)/)
+      .map((letter) => {
+        if (letter.trim() === '') {
+          return letter
+        }
+        // return `<span style="opacity: 0; display: inline-block">${letter}</span>`
+        return letter
+          .split('')
+          .map((char) => {
+            return `<span style="opacity: 0; display: inline-block; pointer-events: none;">${char}</span>`
+          })
+          .join('')
+      })
+      .join('')
+  })
+}
 </script>
 
 <style class="postcss">
