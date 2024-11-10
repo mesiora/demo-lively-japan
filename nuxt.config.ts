@@ -10,7 +10,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      titleTemplate: '%s - Discover the Vibrant Heart of JAPAN ',
+      titleTemplate: '%s - Lively Japan ',
       title: 'Demo',
       htmlAttrs: {
         lang: 'en',
